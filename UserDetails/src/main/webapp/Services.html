@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html> 
+ <head> 
+  <title>Services</title> 
+  <style> 
+  body { 
+   font-family: Arial, sans-serif; 
+   margin: 0; 
+   padding: 0;
+   background-color: #ffffba;  
+  } 
+ 
+  nav { 
+   background-color: green; 
+   color: white; 
+   padding: 10px; 
+  } 
+ 
+  nav ul { 
+   margin: 0; 
+   padding: 0; 
+   list-style-type: none; 
+   text-align: center; 
+  } 
+ 
+  nav ul li { 
+   display: inline-block; 
+   margin-right: 20px; 
+  } 
+ 
+  nav ul li a { 
+   color: #fff; 
+   text-decoration: none; 
+   padding: 5px 10px; 
+   border-radius: 3px; 
+  } 
+ 
+  nav ul li a:hover { 
+   background-color: #555;
+   
+   } 
+ 
+  form { 
+   display: none; 
+   width: 300px; 
+   margin: 20px auto; 
+  } 
+ 
+  label { 
+   display: block; 
+   margin-bottom: 5px; 
+  } 
+ 
+  input[type="text"], 
+  input[type="number"], 
+  input[type="submit"] { 
+   width: 100%; 
+   padding: 5px; 
+   margin-bottom: 10px; 
+  } 
+ 
+  </style> 
+  <script> 
+   function showForm(formId) { 
+    var forms = document.getElementsByTagName("form"); 
+    for (var i = 0; i < forms.length; i++) { 
+     forms[i].style.display = "none"; 
+    } 
+ 
+    var form = document.getElementById(formId); 
+    form.style.display = "block"; 
+   } 
+  </script> 
+ </head> 
+ <body> 
+  <nav> 
+   <ul> 
+    <li><a href="#" onclick="showForm('insert_account_form');">Create 
+Account</a></li> 
+    <li><a href="#" onclick="showForm('withdraw_form');">Withdraw</a></li> 
+    <li><a href="#" onclick="showForm('deposit_form');">Deposit</a></li> 
+    <li><a href="#" onclick="showForm('check_balance_form');">Check Balance</a></li> 
+    <li><a href="#" onclick="showForm('update_name_form');">Update Name</a></li> 
+    <li><a href="#" onclick="showForm('money_transfer_form');">Money Transfer</a></li> 
+    <li><a href="./LogoutServlet">Logout</a></li> 
+   </ul> 
+  </nav> 
+
+  <form id="insert_account_form" action="AccountCreationServlet" method="post" style="display: none;"> 
+   <h2>Create Account</h2> 
+   Enter Account Num : <input type="text" id="accountNumber" name="accountNumber" required> 
+   Enter Name : <input type="text" id="name" name="name" required> 
+   Enter Balance : <input type="number" id="balance" name="balance" required> 
+   <input type="submit" value="Create Account"> 
+  </form> 
+  
+  <form id="withdraw_form" action="WithdrawServlet" method="post" style="display: none;"> 
+   <h2>Withdraw</h2> 
+   Enter Account num : <input type="text" id="accountNumberWithdraw" name="accountNumberWithdraw" required> 
+   Enter Withdraw amt : <input type="number" id="amountWithdraw" name="amountWithdraw" required> 
+   <input type="submit" value="Withdraw"> 
+  </form> 
+
+  <form id="deposit_form" action="DepositServlet" method="post" style="display: none;"> 
+   <h2>Deposit</h2> 
+   Enter Account Num : <input type="text" id="accountNumberDeposit" name="accountNumberDeposit" required> 
+   Enter Deposit Amt : <input type="number" id="amountDeposit" name="amountDeposit" required> 
+   <input type="submit" value="Deposit"> 
+  </form> 
+
+  <form id="check_balance_form" action="CheckBalanceServlet" method="post" style="display: none;"> 
+   <h2>Check Balance</h2> 
+   Enter Account Num : <input type="text" id="accountNumberCheck" name="accountNumberCheck" required> 
+   <input type="submit" value="Check Balance"> 
+  </form> 
+
+ <form id="update_name_form" action="UpdateNameServlet" method="post" style="display: none;">
+    <h2>Update Name</h2>
+    Enter Account Num: <input type="text" id="accountNumber" name="num" required>
+    Enter New Name: <input type="text" id="newName" name="name" required>
+    <input type="submit" value="Update Name">
+</form>
+  
+
+  <form id="money_transfer_form" action="MoneyTransferServlet" method="post" style="display: none;"> 
+   <h2>Money Transfer</h2> 
+   Sender Account Num : <input type="text" id="senderAccountNumber" name="senderAccountNumber" required> 
+   Receiver Account Num : <input type="text" id="receiverAccountNumber" name="receiverAccountNumber" required> 
+   Enter Transfer Amount : <input type="number" id="transferAmount" name="transferAmount" required> 
+   <input type="submit" value="Transfer Money"> 
+  </form> 
+ </body> 
+</html>
